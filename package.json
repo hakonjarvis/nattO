@@ -1,0 +1,34 @@
+{
+  "name": "nattO",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hakonjarvis/nattO.git",
+  "author": "Mathias Benjaminsen <mabenjam@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
+    "webpack:dev": "webpack --mode development",
+    "webpack": "webpack"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-syntax-jsx": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
