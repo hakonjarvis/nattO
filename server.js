@@ -33,6 +33,53 @@ app.get("/api/runner/:id", (req, res) => {
   });
 });
 
+app.get("/api/runner/:id/results", (req, res) => {
+  con.query(`SELECT * FROM Results WHERE person_id=${req.params.id}`, function (
+    err,
+    result,
+    fields
+  ) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
+app.get("/api/events", (req, res) => {
+  con.query("SELECT * FROM Events", function (err, result, fields) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
+app.get("/api/event/:id", (req, res) => {
+  con.query(`SELECT * FROM Events WHERE event_id=${req.params.id}`, function (
+    err,
+    result,
+    fields
+  ) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
+app.get("/api/results", (req, res) => {
+  con.query("SELECT * FROM Results", function (err, result, fields) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
+app.get("/api/tables", (req, res) => {
+  con.query("SELECT * FROM information_schema.tables", function (
+    err,
+    result,
+    fields
+  ) {
+    if (err) throw err;
+    res.json(result.map((table) => table.TABLE_NAME));
+  });
+});
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
