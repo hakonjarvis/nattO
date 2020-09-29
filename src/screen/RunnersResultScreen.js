@@ -26,7 +26,7 @@ const RunnersResultScreen = () => {
 
   return (
     <List
-      title="Result list"
+      title="King & Queen of the night"
       data={data}
       labels={["Rank", "Name/club", "Points"]}
     />

@@ -22,6 +22,17 @@ app.get("/api/runners", (req, res) => {
   });
 });
 
+app.get("/api/runner/:id", (req, res) => {
+  con.query(`SELECT * FROM Runners WHERE person_id=${req.params.id}`, function (
+    err,
+    result,
+    fields
+  ) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
