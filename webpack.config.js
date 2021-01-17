@@ -1,5 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
@@ -22,7 +24,11 @@ module.exports = {
     filename: "bundle.js",
     publicPath: "/",
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   devServer: {
     hot: true,
     historyApiFallback: true,

@@ -1,5 +1,4 @@
 /node_modules
 yarn-error.log
-/public/*.json
-/public/*.js
+/public
 env.js
