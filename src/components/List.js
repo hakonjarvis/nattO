@@ -28,7 +28,7 @@ const List = (props) => {
             name={item.full_name}
             club={item.organisation_name}
             position={index + 1}
-            points={Math.floor(Math.random() * 10000)}
+            points={Math.floor(item.points)}
           />
         ))}
       </ul>

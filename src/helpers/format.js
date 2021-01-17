@@ -1,6 +1,6 @@
 export const formatRunners = (runners) => {
   return runners.map((runner) => {
-    const fullName = runner.given_name + " " + runner.family_name;
+    const fullName = runner.person_given_name + " " + runner.person_family_name;
 
     return {
       ...runner,

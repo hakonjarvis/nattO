@@ -8,7 +8,11 @@ const ListItem = (props) => {
   return (
     <li className={styles.listItemWrapper}>
       <div className={styles.listItem}>
-        <span className={`${styles.rank} ${position && "one"} ${styles.span}`}>
+        <span
+          className={`${styles.rank} ${position === 1 ? styles.one : ""} ${
+            styles.span
+          }`}
+        >
           {position}
         </span>
         <div className={styles.info}>
@@ -40,16 +44,40 @@ const useStyles = createUseStyles({
     padding: 10,
     transition: "all 0.5s ease",
     alignItems: "center",
-    "&:hover, &:active": {
+    "&:hover span": {
+      color: "#001546",
+    },
+    "&:hover point": {
+      color: "#faf9fb",
+    },
+    "&:hover": {
+      transform: "scale(1.2)",
+      backgroundColor: "#fedf84",
+      borderRadius: 2,
+      boxShadow: "rgba(0,0,0,0.2)",
+      one: {
+        "&:before": {
+          transform: "scale(1.2) rotate(200deg)",
+          left: -28,
+          top: 0,
+        },
+        "&:after": {
+          transform: "scale(1.4) rotate(-20deg)",
+          left: -26,
+          top: 25,
+        },
+      },
+    },
+    "&.active": {
       transform: "scale(1.2)",
       backgroundColor: "#fedf84",
       borderRadius: 2,
       boxShadow: "rgba(0,0,0,0.2)",
     },
-    "&:hover span, &.active span": {
+    "&.active span": {
       color: "#001546",
     },
-    "&:hover .point, &.active .point": {
+    "&.active point": {
       color: "#faf9fb",
     },
   },
@@ -63,31 +91,23 @@ const useStyles = createUseStyles({
     fontSize: 20,
     marginRight: 20,
     width: 20,
-    "&.one:before": {
-      content: "⭐",
+  },
+  one: {
+    "&:before": {
+      content: '"⭐"',
       position: "absolute",
       transform: "scale(0)",
       left: -5,
       top: 10,
       transition: "all 0.5s ease",
     },
-    "&.one:hover:before": {
-      transform: "scale(1.2) rotate(200deg)",
-      left: -28,
-      top: 0,
-    },
-    "&.one:after": {
-      content: "🥇",
+    "&:after": {
+      content: '"🥇"',
       position: "absolute",
       transform: "scale(0)",
       transition: "all 0.5s ease",
       left: -5,
       top: 15,
-    },
-    "&.one:hover:after": {
-      transform: "scale(1.4) rotate(-20deg)",
-      left: -26,
-      top: 25,
     },
   },
   info: {
@@ -127,7 +147,7 @@ const useStyles = createUseStyles({
       borderRight: "4px solid transparent",
       borderBottom: "7px solid #faf9fb",
     },
-    ".down": {
+    "&.down": {
       width: 0,
       height: 0,
       borderLeft: "4px solid transparent",

@@ -15,9 +15,9 @@ const RunnersResultScreen = () => {
   }, []);
 
   const getData = async () => {
-    const result = await get("runners");
+    const result = await get("results");
     const formatedResult = formatRunners(result);
-    setData(formatedResult);
+    setData(formatedResult.sort((a, b) => b.points - a.points));
   };
 
   if (!data) {
